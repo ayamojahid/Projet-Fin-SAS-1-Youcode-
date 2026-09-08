@@ -1,8 +1,6 @@
 var prompt = require('prompt-sync')();
 
-let tabletrips=[];
-function Afficherlestrajets(){
-    const trips = [
+  const trips = [
     {
         id: 1,
         departure: "Safi",
@@ -184,12 +182,24 @@ function Afficherlestrajets(){
         availableSeats: 50
     }
 ];
+function Afficherlestrajets(){
+  
 console.log("=== TRAJETS DISPONIBLES ===");
 
  for(let i = 0 ; i<trips.length ; i++) {
-        trips.push(tabletrips);
+    console.log("------------------------------");
+    console.log("Trajet " + trips[i].id);
+    console.log("id: " + trips[i].id);
+    console.log("departure: " + trips[i].departure);
+    console.log("destination:  " + trips[i].destination);
+    console.log("departureTime: " + trips[i].departureTime);
+    console.log("price: " + trips[i].price);
+    console.log("availableSeats: " + trips[i]. availableSeats);
     }
-console.log(tabletrips)
+
+
+
+
  }
 
 function main() {
@@ -212,7 +222,7 @@ console.log("0. Quitter")
 
 
 
-choix=Number(prompt("Veuiller taper un choix de 1 a 7  "))
+choix=Number(prompt("Veuiller taper un choix de (1 a 7)  "))
 switch(choix)  {
  
     case 1 : Afficherlestrajets()
