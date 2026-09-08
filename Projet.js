@@ -1,5 +1,7 @@
 var prompt = require('prompt-sync')();
 
+const tickets = [];
+
   const trips = [
     {
         id: 1,
@@ -188,7 +190,7 @@ console.log("=== TRAJETS DISPONIBLES ===");
 
  for(let i = 0 ; i<trips.length ; i++) {
     console.log("------------------------------");
-    console.log("Trajet " + trips[i].id);
+    console.log("Trajet Numero : " + trips[i].id);
     console.log("id: " + trips[i].id);
     console.log("departure: " + trips[i].departure);
     console.log("destination:  " + trips[i].destination);
@@ -196,9 +198,6 @@ console.log("=== TRAJETS DISPONIBLES ===");
     console.log("price: " + trips[i].price);
     console.log("availableSeats: " + trips[i]. availableSeats);
     }
-
-
-
 
  }
 
@@ -250,7 +249,66 @@ switch(choix)  {
 }
 
 
-function Acheterunticket() {}
+function Acheterunticket() {
+
+    let acht={
+    Nomdupassager : "",
+    Identifiantdutrajet : 0
+    };
+
+    do{
+    acht.Nomdupassager=prompt("Veuiller entrer votre nom: ");
+    
+    } while(acht.Nomdupassager.trim()=="" || acht.Nomdupassager===null || !isNaN(acht.Nomdupassager))
+    
+    do {
+    acht.Identifiantdutrajet=Number(prompt("Veuiller entrer votre identifiant du traget: "));
+    } while(acht.Identifiantdutrajet === 0  || isNaN(acht.Identifiantdutrajet))
+
+        let tr=false;
+
+         // Rechercher le trajet
+    for(let i = 0 ; i<trips.length ; i++) {
+        if(acht.Identifiantdutrajet==trips[i].id)  {
+            tr=true;
+
+        }
+
+        
+       //// Vérifier les places
+       if(trips[i].availableSeats > 0) {
+          // Attribuer automatiquement un numéro de place
+          acht.NumeroDePlace =trips[i].availableSeats;
+
+           //  Diminuer les places disponibles
+                trips[i].availableSeats--;
+
+                // on ajoute alor ticket
+                tickets.push(acht);
+
+                console.log(acht);
+                console.log("Ticket est achete avec succes");
+
+                
+
+       }
+       else {
+        console.log("desole ce trajet est complet aucune place trouve")
+       }
+           break;
+
+    }
+
+    //verifier si le trajet se trouve ou non
+    if(tr==false) {
+        console.log("Aucun trajet ne trouve avec vette id ")
+
+    }
+
+
+
+
+}
 
 function Afficherlestickets() {}
 
@@ -261,4 +319,6 @@ function Rechercherunticket() {}
 function Filtrerlestrajets() {}
 
 function Trierlestrajets() {}
+
+
 main()
