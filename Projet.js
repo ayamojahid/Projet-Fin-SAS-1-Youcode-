@@ -249,7 +249,9 @@ switch(choix)  {
 }
 
 
-function Acheterunticket() {
+function Acheterunticket(
+    
+) {
 
     let acht={
     Nomdupassager : "",
@@ -271,10 +273,6 @@ function Acheterunticket() {
     for(let i = 0 ; i<trips.length ; i++) {
         if(acht.Identifiantdutrajet==trips[i].id)  {
             tr=true;
-
-        }
-
-        
        //// Vérifier les places
        if(trips[i].availableSeats > 0) {
           // Attribuer automatiquement un numéro de place
@@ -288,14 +286,12 @@ function Acheterunticket() {
 
                 console.log(acht);
                 console.log("Ticket est achete avec succes");
-
-                
-
-       }
-       else {
+       }   else {
         console.log("desole ce trajet est complet aucune place trouve")
-       }
-           break;
+       } 
+       break;
+     }
+           
 
     }
 
