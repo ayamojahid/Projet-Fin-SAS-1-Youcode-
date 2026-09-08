@@ -1,6 +1,6 @@
 var prompt = require('prompt-sync')();
 
-
+let tabletrips=[];
 function Afficherlestrajets(){
     const trips = [
     {
@@ -187,13 +187,13 @@ function Afficherlestrajets(){
 console.log("=== TRAJETS DISPONIBLES ===");
 
  for(let i = 0 ; i<trips.length ; i++) {
-    for(let j=0 ; j<trips[i].length ; j++) {
-        console.log(traget[j])
+        trips.push(tabletrips);
     }
-
+console.log(tabletrips)
  }
-}
+
 function main() {
+let choix;
 
 do {
 console.log("=================================")
@@ -211,7 +211,6 @@ console.log("0. Quitter")
 
 
 
-let choix;
 
 choix=Number(prompt("Veuiller taper un choix de 1 a 7  "))
 switch(choix)  {
@@ -222,7 +221,7 @@ switch(choix)  {
     break;
     case 3 : Afficherlestickets()
     break;
-    case 4 : Annuler0unticket()
+    case 4 : Annulerunticket()
     break;
     case 5 : Rechercherunticket()
     break;
@@ -230,7 +229,8 @@ switch(choix)  {
     break;
     case 7 : Trierlestrajets()
     break;
-    
+    case 0 : 
+    break;
     default : 
     console.log("auncun choix trouvee")
     break;
@@ -240,3 +240,15 @@ switch(choix)  {
 }
 
 
+function Acheterunticket() {}
+
+function Afficherlestickets() {}
+
+function Annulerunticket() {}
+
+function Rechercherunticket() {}
+
+function Filtrerlestrajets() {}
+
+function Trierlestrajets() {}
+main()
