@@ -306,7 +306,11 @@ function Acheterunticket(
 
 }
 
-function Afficherlestickets() {}
+function Afficherlestickets() {
+    for(let i = 0 ; i<tickets.length ; i++) {
+          console.log(tickets[i]);
+    }
+}
 
 function Annulerunticket() {}
 
