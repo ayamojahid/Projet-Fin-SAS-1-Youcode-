@@ -249,10 +249,8 @@ switch(choix)  {
 }
 
 
-function Acheterunticket(
-    
-) {
-
+function Acheterunticket() {
+     
     let acht={
     ID : 0,
     Nomdupassager : "",
@@ -282,9 +280,13 @@ function Acheterunticket(
 
           
           acht.NumeroDePlace =trips[i].availableSeats;
+            
          
-          acht.ID++;
-          acht.seatNumber++;
+         acht.ID = tickets.length + 1;
+
+          acht.seatNumber=tickets.length + 1
+
+        
           acht.price=trips[i].price;
            
                 trips[i].availableSeats--;
