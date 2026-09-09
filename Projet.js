@@ -221,7 +221,7 @@ console.log("0. Quitter")
 
 
 
-choix=Number(prompt("Veuiller taper un choix de (1 a 7)  "))
+choix=Number(prompt("Veuiller taper un choix de (0 a 7)  "))
 switch(choix)  {
  
     case 1 : Afficherlestrajets()
@@ -254,8 +254,11 @@ function Acheterunticket(
 ) {
 
     let acht={
+    ID : 0,
     Nomdupassager : "",
-    Identifiantdutrajet : 0
+    tripID : 0,
+    seatNumber: 0,
+    price : 0
     };
 
     do{
@@ -264,28 +267,34 @@ function Acheterunticket(
     } while(acht.Nomdupassager.trim()=="" || acht.Nomdupassager===null || !isNaN(acht.Nomdupassager))
     
     do {
-    acht.Identifiantdutrajet=Number(prompt("Veuiller entrer votre identifiant du traget: "));
-    } while(acht.Identifiantdutrajet === 0  || isNaN(acht.Identifiantdutrajet))
+    acht.tripID=Number(prompt("Veuiller entrer votre identifiant du traget: "));
+    } while(acht.tripID === 0  || isNaN(acht.tripID))
 
         let tr=false;
 
          // Rechercher le trajet
     for(let i = 0 ; i<trips.length ; i++) {
-        if(acht.Identifiantdutrajet==trips[i].id)  {
+        if(acht.tripID==trips[i].id)  {
             tr=true;
-       //// Vérifier les places
+
+   
        if(trips[i].availableSeats > 0) {
-          // Attribuer automatiquement un numéro de place
+
+          
           acht.NumeroDePlace =trips[i].availableSeats;
-
-           //  Diminuer les places disponibles
+         
+          acht.ID++;
+          acht.seatNumber++;
+          acht.price=trips[i].price;
+           
                 trips[i].availableSeats--;
-
-                // on ajoute alor ticket
+               
+                
                 tickets.push(acht);
 
                 console.log(acht);
-                console.log("Ticket est achete avec succes");
+
+                console.log("ticket est achete avec succes");
        }   else {
         console.log("desole ce trajet est complet aucune place trouve")
        } 
@@ -297,7 +306,7 @@ function Acheterunticket(
 
     //verifier si le trajet se trouve ou non
     if(tr==false) {
-        console.log("Aucun trajet ne trouve avec vette id ")
+        console.log("aucun trajet ne trouve avec cette id ")
 
     }
 
