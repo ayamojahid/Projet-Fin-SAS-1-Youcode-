@@ -13,7 +13,7 @@ let compteur=0;
         arrivalTime: "08:30",
         price: 25,
         availableSeats: 50
-    },
+    }, 
     {
         id: 2,
         departure: "Safi",
@@ -292,6 +292,7 @@ function Acheterunticket() {
        
         
           acht.price=trips[i].price;
+          
            
          trips[i].availableSeats--;
                
@@ -323,9 +324,15 @@ function Acheterunticket() {
 
 function Afficherlestickets() {
     console.log("=== TICKETS ===");
+    if(tickets.length === 0) {
+        console.log("aucun ticket enregistrer");
+        return;
+    }
     for(let i = 0 ; i<tickets.length ; i++) {
         console.log(`Tickets ${i+1}`)
+        //tickets[i].destination+tickets[i].departure 
           console.log(tickets[i]);
+
     }
 }
 
@@ -339,24 +346,34 @@ function Annulerunticket() {
         if(Identifiantduticket==tickets[i].ID) {
         trouve=true
         tickets.splice(i, 1);
+        trips.availableSeats++;
         console.log("Ticket a ete annule avec succes")
         break;
         }
-
-        if(trouve==false) {
-            console.log("Ticket introuvable.")
-        }
-        
+  
     
 }
+  if (trouve==false) {
+            console.log("Ticket introuvable.")
+        }
 }
 
 function Rechercherunticket() {
 let rechercherprnomdupassager;
 let rech=false;
+
 rechercherprnomdupassager=prompt("Veuillez entrer votre nom pour rechercher votre tickets : ")
+
 for(let i=0 ; i<tickets.length ; i++) {
-    if(rechercherprnomdupassager== )
+    if(rechercherprnomdupassager== tickets[i].Nomdupassager) {
+        console.log("Voici tous les tickets appartenant votre nom " + rechercherprnomdupassager );
+        console.log(tickets[i])
+        rech=true;
+        
+    }
+    else if(rech==false) {
+        console.log("aucun nom trouve")
+    }
 }
 
 }
