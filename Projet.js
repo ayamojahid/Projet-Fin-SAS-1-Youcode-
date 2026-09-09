@@ -409,7 +409,19 @@ function Filtrerlestrajets() {
 
 
 function Trierlestrajets() {
-    
+    let swipe;
+    for(let i=0 ; i<trips.length ; i++ ) {
+        for(let j = 0 ; j<trips.length-1 ; j++) {
+            if(trips[j].price > trips[j+1].price) {
+                swipe=trips[j];
+                trips[j]=trips[j+1];
+                trips[j+1]=swipe;
+            }
+        }
+    }
+    console.log(trips);
+
+
 }
 
 
