@@ -1,6 +1,8 @@
 var prompt = require('prompt-sync')();
 
 const tickets = [];
+let compteur=0;
+
 
   const trips = [
     {
@@ -221,7 +223,7 @@ console.log("0. Quitter")
 
 
 
-choix=Number(prompt("Veuiller taper un choix de (0 a 7)  "))
+choix=Number(prompt("Veuiller taper un choix de (0 a 7) :     "))
 switch(choix)  {
  
     case 1 : Afficherlestrajets()
@@ -260,36 +262,42 @@ function Acheterunticket() {
     };
 
     do{
-    acht.Nomdupassager=prompt("Veuiller entrer votre nom: ");
+    acht.Nomdupassager=prompt("Veuiller entrer votre nom:   ");
     
     } while(acht.Nomdupassager.trim()=="" || acht.Nomdupassager===null || !isNaN(acht.Nomdupassager))
     
     do {
-    acht.tripID=Number(prompt("Veuiller entrer votre identifiant du traget: "));
+    acht.tripID=Number(prompt("Veuiller entrer votre identifiant du traget:   "));
     } while(acht.tripID === 0  || isNaN(acht.tripID))
+
 
         let tr=false;
 
-         // Rechercher le trajet
+        
     for(let i = 0 ; i<trips.length ; i++) {
+        
         if(acht.tripID==trips[i].id)  {
             tr=true;
 
    
        if(trips[i].availableSeats > 0) {
 
-          
-          acht.NumeroDePlace =trips[i].availableSeats;
-            
-         
-         acht.ID = tickets.length + 1;
+             compteur++;
 
-          acht.seatNumber=tickets.length + 1
+
+          acht.NumeroDePlace =trips[i].nextSeat;
+          
+
+            
+         acht.seatNumber = 51 - trips[i].availableSeats;
+         acht.ID = compteur;
+
+       
 
         
           acht.price=trips[i].price;
            
-                trips[i].availableSeats--;
+         trips[i].availableSeats--;
                
                 
                 tickets.push(acht);
@@ -318,12 +326,33 @@ function Acheterunticket() {
 }
 
 function Afficherlestickets() {
+    console.log("=== TICKETS ===");
     for(let i = 0 ; i<tickets.length ; i++) {
+        console.log(`Tickets ${i+1}`)
           console.log(tickets[i]);
     }
 }
 
-function Annulerunticket() {}
+function Annulerunticket() {
+    let  Identifiantduticket;
+    let trouve=false;
+    Identifiantduticket=Number(prompt("Veuiller entrer l'dentifiant du ticket :  ")); 
+    
+    for(let i= 0 ; i<tickets.length ; i++) {
+        if(Identifiantduticket==tickets[i].ID) {
+        trouve=true
+        tickets.splice(i, 1);
+        console.log("Ticket a ete annule avec succes")
+        break;
+        }
+
+        if(trouve==false) {
+            console.log("Ticket introuvable.")
+        }
+        
+    
+}
+}
 
 function Rechercherunticket() {}
 
