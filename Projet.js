@@ -284,10 +284,6 @@ function Acheterunticket() {
 
              compteur++;
 
-
-          acht.NumeroDePlace =trips[i].nextSeat;
-          
-
             
          acht.seatNumber = 51 - trips[i].availableSeats;
          acht.ID = compteur;
