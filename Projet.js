@@ -191,14 +191,17 @@ function Afficherlestrajets(){
 console.log("=== TRAJETS DISPONIBLES ===");
 
  for(let i = 0 ; i<trips.length ; i++) {
-    console.log("------------------------------");
-    console.log("Trajet Numero : " + trips[i].id);
-    console.log("id: " + trips[i].id);
-    console.log("departure: " + trips[i].departure);
-    console.log("destination:  " + trips[i].destination);
-    console.log("departureTime: " + trips[i].departureTime);
-    console.log("price: " + trips[i].price);
-    console.log("availableSeats: " + trips[i]. availableSeats);
+    console.log("=============================");
+
+    console.log("#" + trips[i].id + "  " + trips[i].departure + " -----> " + trips[i].destination);
+
+    console.log("Départ : " + trips[i].departureTime);
+
+    console.log("Arrivée : " + trips[i].arrivalTime);
+
+    console.log("Prix : " + trips[i].price + " DH ");
+
+    console.log("Places disponibles :  " + trips[i]. availableSeats);
     }
 
  }
@@ -349,7 +352,7 @@ function Annulerunticket() {
     let trouve=false;
     do{
     Identifiantduticket=Number(prompt("Veuiller entrer l'dentifiant du ticket :  ")); 
-    } while(Identifiantduticket ==!isNaN  )
+    } while(isNaN(Identifiantduticket)  )
     
     for(let i= 0 ; i<tickets.length ; i++) {
         if(Identifiantduticket==tickets[i].ID) {
@@ -373,7 +376,7 @@ let rech=false;
 
 do{
 rechercherprnomdupassager=prompt("Veuillez entrer votre nom pour rechercher votre tickets : ")
-} while(rechercherprnomdupassager.trim() == "" || rechercherprnomdupassager == isNaN)
+} while(rechercherprnomdupassager.trim() == "" || isNaN(rechercherprnomdupassager ))
 
 for(let i=0 ; i<tickets.length ; i++) {
     if(rechercherprnomdupassager== tickets[i].Nomdupassager) {
@@ -382,10 +385,11 @@ for(let i=0 ; i<tickets.length ; i++) {
         rech=true;
         
     }
-    else if(rech==false) {
+   
+}
+ if(rech==false) {
         console.log("aucun nom trouve")
     }
-}
 
 }
 
@@ -393,7 +397,7 @@ function Filtrerlestrajets() {
     let Villededepart;
     let ville = false;
     do {Villededepart=prompt("Veuiller entrer la vie de depart---> ");
-    }while(Villededepart == isNaN || Villededepart.trim() == "")
+    }while(isNaN(Villededepart)|| Villededepart.trim() == "")
 
     for(let i=0 ; i<trips.length ; i++) {
     if(Villededepart.toLowerCase() == trips[i].departure.toLowerCase() ) {
