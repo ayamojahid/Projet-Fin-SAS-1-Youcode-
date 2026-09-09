@@ -294,7 +294,6 @@ function Acheterunticket() {
          acht.ID = compteur;
 
        
-        
           acht.price=trips[i].price;
           
            acht.Trajet=trips[i].departure +" ----> " + trips[i].destination;
@@ -357,8 +356,14 @@ function Annulerunticket() {
     for(let i= 0 ; i<tickets.length ; i++) {
         if(Identifiantduticket==tickets[i].ID) {
         trouve=true
+        for(let j=0 ; j<trips.length ; j++) {
+            if(trips[j].id == tickets[i].tripID) {
+             trips[j].availableSeats++;
+             break;
+            }
+        }
         tickets.splice(i, 1);
-        trips.availableSeats++;
+       
         console.log("Ticket a ete annule avec succes")
         break;
         }
