@@ -286,10 +286,10 @@ function Acheterunticket() {
 
             
          acht.seatNumber = 51 - trips[i].availableSeats;
+
          acht.ID = compteur;
 
        
-
         
           acht.price=trips[i].price;
            
@@ -330,6 +330,7 @@ function Afficherlestickets() {
 }
 
 function Annulerunticket() {
+
     let  Identifiantduticket;
     let trouve=false;
     Identifiantduticket=Number(prompt("Veuiller entrer l'dentifiant du ticket :  ")); 
@@ -350,7 +351,15 @@ function Annulerunticket() {
 }
 }
 
-function Rechercherunticket() {}
+function Rechercherunticket() {
+let rechercherprnomdupassager;
+let rech=false;
+rechercherprnomdupassager=prompt("Veuillez entrer votre nom pour rechercher votre tickets : ")
+for(let i=0 ; i<tickets.length ; i++) {
+    if(rechercherprnomdupassager== )
+}
+
+}
 
 function Filtrerlestrajets() {}
 
