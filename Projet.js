@@ -277,7 +277,6 @@ function Acheterunticket() {
 
         let tr=false;
 
-        
     for(let i = 0 ; i<trips.length ; i++) {
         
         if(acht.tripID==trips[i].id)  {
@@ -286,17 +285,16 @@ function Acheterunticket() {
    
        if(trips[i].availableSeats > 0) {
 
-             compteur++;
 
-            
          acht.seatNumber = 51 - trips[i].availableSeats;
 
+             compteur++;
+          
          acht.ID = compteur;
-
        
           acht.price=trips[i].price;
           
-           acht.Trajet=trips[i].departure +" ----> " + trips[i].destination;
+        acht.Trajet=trips[i].departure +" ----> " + trips[i].destination;
 
          trips[i].availableSeats--;
                
@@ -307,7 +305,7 @@ function Acheterunticket() {
 
                 console.log("ticket est achete avec succes");
        }   else {
-        console.log("desole ce trajet est complet aucune place trouve")
+        console.log("desole le train est complet aucune place trouve")
        } 
        break;
      }
@@ -315,7 +313,7 @@ function Acheterunticket() {
 
     }
 
-    //verifier si le trajet se trouve ou non
+   
     if(tr==false) {
         console.log("aucun trajet ne trouve avec cette id ")
 
@@ -334,7 +332,8 @@ function Afficherlestickets() {
     }
     for(let i = 0 ; i<tickets.length ; i++) {
         console.log("------------------------------")
-        console.log(`Tickets ${i+1}`)
+        console.log("Ticket" + tickets[i].ID)
+
 
           console.log("Passager :" +tickets[i].Nomdupassager);
           console.log("Trajet :" +tickets[i].Trajet);
@@ -362,6 +361,7 @@ function Annulerunticket() {
              break;
             }
         }
+
         tickets.splice(i, 1);
        
         console.log("Ticket a ete annule avec succes")
@@ -375,13 +375,14 @@ function Annulerunticket() {
         }
 }
 
+
 function Rechercherunticket() {
 let rechercherprnomdupassager;
 let rech=false;
 
 do{
 rechercherprnomdupassager=prompt("Veuillez entrer votre nom pour rechercher votre tickets : ")
-} while(rechercherprnomdupassager.trim() == "" || isNaN(rechercherprnomdupassager ))
+} while(rechercherprnomdupassager.trim() == "" || !isNaN(rechercherprnomdupassager ))
 
 for(let i=0 ; i<tickets.length ; i++) {
     if(rechercherprnomdupassager== tickets[i].Nomdupassager) {
@@ -402,7 +403,7 @@ function Filtrerlestrajets() {
     let Villededepart;
     let ville = false;
     do {Villededepart=prompt("Veuiller entrer la vie de depart---> ");
-    }while(isNaN(Villededepart)|| Villededepart.trim() == "")
+    }while(!isNaN(Villededepart)|| Villededepart.trim() == "")
 
     for(let i=0 ; i<trips.length ; i++) {
     if(Villededepart.toLowerCase() == trips[i].departure.toLowerCase() ) {
@@ -427,10 +428,15 @@ function Trierlestrajets() {
                 trips[j+1]=swipe;
             }
         }
+
     }
-    console.log(trips);
+   
+    for(let i=0 ; i<trips.length ; i++) {
+             console.log( trips[i].departure + " -----> " + trips[i].destination + " : " +  trips[i].price + " DH ");
 
+    }
 
+     
 }
 
 
