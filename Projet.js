@@ -271,7 +271,7 @@ function Acheterunticket() {
     do{
     acht.Nomdupassager=prompt("Veuiller entrer votre nom:   ");
     
-    } while(acht.Nomdupassager.trim()==""  || !isNaN(acht.Nomdupassager))
+    } while(!isNaN(acht.Nomdupassager))
     
     do {
     acht.tripID=Number(prompt("Veuiller entrer votre identifiant du traget:   "));
@@ -385,14 +385,20 @@ let rech=false;
 
 do{
 rechercherprnomdupassager=prompt("Veuillez entrer votre nom pour rechercher votre tickets : ")
-} while(rechercherprnomdupassager.trim() == "" || !isNaN(rechercherprnomdupassager ))
+} while(  !isNaN(rechercherprnomdupassager ))
 
 for(let i=0 ; i<tickets.length ; i++) {
     if(rechercherprnomdupassager== tickets[i].Nomdupassager) {
         console.log("Voici tous les tickets appartenant votre nom " + rechercherprnomdupassager );
-        console.log(tickets[i])
+        console.log("Ticket" + tickets[i].ID)
+
+          console.log("Passager :" +tickets[i].Nomdupassager);
+          console.log("Trajet :" +tickets[i].Trajet);
+          console.log("Place : "+ tickets[i].seatNumber);
+          console.log("Prix : " + tickets[i].price + "DH")
+
         rech=true;
-        
+        console.log("--------------");
     }
    
 }
@@ -406,7 +412,7 @@ function Filtrerlestrajets() {
     let Villededepart;
     let ville = false;
     do {Villededepart=prompt("Veuiller entrer la vie de depart---> ");
-    }while(!isNaN(Villededepart)|| Villededepart.trim() == "")
+    }while(!isNaN(Villededepart))
 
     for(let i=0 ; i<trips.length ; i++) {
     if(Villededepart.toLowerCase() == trips[i].departure.toLowerCase() ) {
@@ -443,7 +449,6 @@ function Trierlestrajets() {
 }
 
 
-main()
 
 
 function Statistiques() {
@@ -481,4 +486,6 @@ function chiffredaffaire() {
     total+=tickets[i].price; }
     console.log("Chiffre d'affaires total : " + total + " DH ") 
     }
-    
+
+
+main()
