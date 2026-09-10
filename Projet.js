@@ -221,6 +221,7 @@ console.log("4. Annuler un ticket" )
 console.log("5. Rechercher un ticket" )
 console.log("6. Filtrer les trajets")
 console.log("7. Trier les trajets")
+console.log("8. Statistiques")
 console.log("0. Quitter")
 
 
@@ -242,6 +243,8 @@ switch(choix)  {
     case 6 : Filtrerlestrajets()
     break;
     case 7 : Trierlestrajets()
+    break;
+    case 8 : Statistiques()
     break;
     case 0 : 
     break;
@@ -441,3 +444,34 @@ function Trierlestrajets() {
 
 
 main()
+
+
+function Statistiques() {
+    console.log("------Statistiques-------")
+    let choixstatistique;
+
+do {
+    console.log("1. Nombre total de tickets vendus");
+    console.log("2. Chiffre d'affaires total");
+    console.log("3. Trajet le plus vendu");
+    console.log("4. Retour au menu principale");
+   
+    
+    choixstatistique=Number(prompt("Veuillez entrer un choix "));
+    switch(choixstatistique) {
+    case 1 :     
+    console.log("Nombre total de tickets vendus :", tickets.length);
+    break;
+    case 2 : chiffredaffaire()
+    break;
+    case 3 : Trajetleplusvendu()
+    break;
+    case 4 : console.log("Retour au menu principal ");
+    break;
+    default : 
+    console.log("aucun choix trouver")
+    break;
+} }
+while(choixstatistique!=4)
+
+}
