@@ -286,7 +286,7 @@ function Acheterunticket() {
             tr=true;
 
    
-       if(trips[i].availableSeats > 0) {
+       if(trips[i].availableSeats > 0 ) {
 
 
          acht.seatNumber = 51 - trips[i].availableSeats;
@@ -335,8 +335,7 @@ function Afficherlestickets() {
     }
     for(let i = 0 ; i<tickets.length ; i++) {
         console.log("------------------------------")
-        console.log("Ticket" + tickets[i].ID)
-
+        console.log("Ticket" + tickets[i].ID);
 
           console.log("Passager :" +tickets[i].Nomdupassager);
           console.log("Trajet :" +tickets[i].Trajet);
@@ -390,8 +389,7 @@ rechercherprnomdupassager=prompt("Veuillez entrer votre nom pour rechercher votr
 for(let i=0 ; i<tickets.length ; i++) {
     if(rechercherprnomdupassager== tickets[i].Nomdupassager) {
         console.log("Voici tous les tickets appartenant votre nom " + rechercherprnomdupassager );
-        console.log("Ticket" + tickets[i].ID)
-
+        console.log("Ticket" + tickets[i].ID);
           console.log("Passager :" +tickets[i].Nomdupassager);
           console.log("Trajet :" +tickets[i].Trajet);
           console.log("Place : "+ tickets[i].seatNumber);
