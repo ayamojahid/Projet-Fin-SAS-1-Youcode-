@@ -473,5 +473,12 @@ do {
     break;
 } }
 while(choixstatistique!=4)
-
 }
+
+function chiffredaffaire() {
+ let total = 0;
+    for(let i=0 ; i<tickets.length ; i++) {
+    total+=tickets[i].price; }
+    console.log("Chiffre d'affaires total : " + total + " DH ") 
+    }
+    
