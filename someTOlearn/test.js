@@ -412,17 +412,25 @@ function Filtrerlestrajets() {
 
 
 function Trierlestrajets() {
-    let swipe;
-    for(let i=0 ; i<trips.length ; i++ ) {
-        for(let j = 0 ; j<trips.length-1 ; j++) {
-            if(trips[j].price > trips[j+1].price) {
-                swipe=trips[j];
-                trips[j]=trips[j+1];
-                trips[j+1]=swipe;
+let tabtri=[];
+
+  for(let i = 0; i < trips.length; i++) {
+        tabtri.push(trips[i]);
+    }
+
+     let swipe;
+     for(let i = 0 ;i<tabtri.length ; i++ ){
+        for(let j = 0 ; j<tabtri.length - 1 ; j++) {
+            if(tabtri[j].price > tabtri[j+1].price) {
+                swipe=tabtri[j];
+                tabtri[j] = tabtri[j+1];
+                tabtri[j+1] = swipe
             }
         }
-    }
-    console.log(trips);
+     }
+
+
+    console.log(tabtri);
 
 
 }
@@ -469,3 +477,25 @@ function chiffredaffaire() {
     console.log("Chiffre d'affaires total : " + total + " DH ") 
     }
 
+
+   function Trajetleplusvendu() {
+     
+
+   
+    for(let i = 0 ; i<trips.length ; i++) {
+          let max = 0;
+    let idMax = 0;
+
+        let compteur = 0 ;
+        for(let j = 0 ; j<tickets.length ; j++) {
+            if(tickets[j].tripID == trips[i].id) {
+                compteur++
+            }
+        }
+
+   if(compteur>max) {
+    max = compteur;
+     idMax=trips[i].id
+   }
+   
+    }}

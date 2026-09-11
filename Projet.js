@@ -206,7 +206,6 @@ console.log("=== TRAJETS DISPONIBLES ===");
 
 
 
-
  }
 
 function main() {
@@ -226,8 +225,6 @@ console.log("6. Filtrer les trajets")
 console.log("7. Trier les trajets")
 console.log("8. Statistiques")
 console.log("0. Quitter")
-
-
 
 
 choix=Number(prompt("Veuiller taper un choix de (0 a 7) :     "))
@@ -258,7 +255,7 @@ switch(choix)  {
 } } while(choix!=0 )
 
 }
-
+ 
 
 function Acheterunticket() {
      
@@ -271,6 +268,7 @@ function Acheterunticket() {
     price : 0
     };
 
+    
     do{
     acht.Nomdupassager=prompt("Veuiller entrer votre nom:   ");
     
@@ -298,7 +296,7 @@ function Acheterunticket() {
           
          acht.ID = compteur;
        
-          acht.price=trips[i].price;
+        acht.price=trips[i].price;
           
         acht.Trajet=trips[i].departure +" ----> " + trips[i].destination;
 
@@ -367,6 +365,7 @@ function Annulerunticket() {
             }
         }
 
+
         tickets.splice(i, 1);
        
         console.log("Ticket a ete annule avec succes")
@@ -429,6 +428,7 @@ function Filtrerlestrajets() {
 
 
 function Trierlestrajets() {
+
     let swipe;
     for(let i=0 ; i<trips.length ; i++ ) {
         for(let j = 0 ; j<trips.length-1 ; j++) {
@@ -464,7 +464,7 @@ do {
     choixstatistique=Number(prompt("Veuillez entrer un choix "));
     switch(choixstatistique) {
     case 1 :     
-    console.log("Nombre total de tickets vendus :", tickets.length);
+    console.log("Nombre total de tickets vendus : " + tickets.length);
     break;
     case 2 : chiffredaffaire()
     break;
@@ -474,7 +474,7 @@ do {
     console.log("aucun choix trouver")
     break;
 } }
-while(choixstatistique!=4)
+while(choixstatistique!=3)
 }
 
 function chiffredaffaire() {
