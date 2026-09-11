@@ -190,19 +190,22 @@ function Afficherlestrajets(){
   
 console.log("=== TRAJETS DISPONIBLES ===");
 
- for(let i = 0 ; i<trips.length ; i++) {
-    console.log("=============================");
+//  for(let i = 0 ; i<trips.length ; i++) {
+//     console.log("=============================");
 
-    console.log("#" + trips[i].id + "  " + trips[i].departure + " -----> " + trips[i].destination);
+//     console.log("#" + trips[i].id + "  " + trips[i].departure + " -----> " + trips[i].destination);
 
-    console.log("Départ : " + trips[i].departureTime);
+//     console.log("Départ : " + trips[i].departureTime);
 
-    console.log("Arrivée : " + trips[i].arrivalTime);
+//     console.log("Arrivée : " + trips[i].arrivalTime);
 
-    console.log("Prix : " + trips[i].price + " DH ");
+//     console.log("Prix : " + trips[i].price + " DH ");
 
-    console.log("Places disponibles :  " + trips[i]. availableSeats);
-    }
+//     console.log("Places disponibles :  " + trips[i]. availableSeats);
+//     }
+
+console.table(trips);
+
 
  }
 
@@ -252,7 +255,7 @@ switch(choix)  {
     console.log("auncun choix trouvee")
     break;
 
-} } while(choix!=0)
+} } while(choix!=0 )
 
 }
 
