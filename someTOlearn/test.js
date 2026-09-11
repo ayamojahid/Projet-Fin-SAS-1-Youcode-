@@ -477,25 +477,43 @@ function chiffredaffaire() {
     console.log("Chiffre d'affaires total : " + total + " DH ") 
     }
 
+function Trajetleplusvendu() {
 
-   function Trajetleplusvendu() {
-     
+    let max = 0;
+    let maxid = 0;
 
-   
-    for(let i = 0 ; i<trips.length ; i++) {
-          let max = 0;
-    let idMax = 0;
+    for (let i = 0; i < trips.length; i++) {
 
-        let compteur = 0 ;
-        for(let j = 0 ; j<tickets.length ; j++) {
-            if(tickets[j].tripID == trips[i].id) {
-                compteur++
+        let compteur = 0;
+
+        for (let j = 0; j < tickets.length; j++) {
+
+            if (tickets[j].tripID == trips[i].id) {
+                compteur++;
             }
         }
 
-   if(compteur>max) {
-    max = compteur;
-     idMax=trips[i].id
-   }
-   
-    }}
+        // Après avoir compté les tickets du trajet
+        if (compteur > max) {
+            max = compteur;
+            maxid = trips[i].id;
+        }
+    }
+
+    if (max == 0) {
+        console.log("Aucun ticket vendu");
+        return;
+    }
+
+    for (let i = 0; i < trips.length; i++) {
+
+        if (trips[i].id == maxid) {
+
+            console.log("Trajet le plus vendu :");
+            console.log(trips[i].departure + " → " + trips[i].destination );
+            console.log(max + " tickets vendus");
+
+            break;
+        }
+    }
+}
