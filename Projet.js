@@ -190,21 +190,21 @@ function Afficherlestrajets(){
   
 console.log("=== TRAJETS DISPONIBLES ===");
 
-//  for(let i = 0 ; i<trips.length ; i++) {
-//     console.log("=============================");
+ for(let i = 0 ; i<trips.length ; i++) {
+    console.log("=============================");
 
-//     console.log("#" + trips[i].id + "  " + trips[i].departure + " -----> " + trips[i].destination);
+    console.log("#" + trips[i].id + "  " + trips[i].departure + " -----> " + trips[i].destination);
 
-//     console.log("Départ : " + trips[i].departureTime);
+    console.log("Départ : " + trips[i].departureTime);
 
-//     console.log("Arrivée : " + trips[i].arrivalTime);
+    console.log("Arrivée : " + trips[i].arrivalTime);
 
-//     console.log("Prix : " + trips[i].price + " DH ");
+    console.log("Prix : " + trips[i].price + " DH ");
 
-//     console.log("Places disponibles :  " + trips[i]. availableSeats);
-//     }
+    console.log("Places disponibles :  " + trips[i]. availableSeats);
+    }
 
-console.table(trips);
+
 
 
  }
@@ -451,7 +451,6 @@ function Trierlestrajets() {
 
 
 
-
 function Statistiques() {
     console.log("------Statistiques-------")
     let choixstatistique;
@@ -459,8 +458,7 @@ function Statistiques() {
 do {
     console.log("1. Nombre total de tickets vendus");
     console.log("2. Chiffre d'affaires total");
-    console.log("3. Trajet le plus vendu");
-    console.log("4. Retour au menu principale");
+    console.log("3. Retour au menu principale");
    
     
     choixstatistique=Number(prompt("Veuillez entrer un choix "));
@@ -470,9 +468,7 @@ do {
     break;
     case 2 : chiffredaffaire()
     break;
-    case 3 : Trajetleplusvendu()
-    break;
-    case 4 : console.log("Retour au menu principal ");
+    case 3 : console.log("Retour au menu principal ");
     break;
     default : 
     console.log("aucun choix trouver")
